@@ -1,0 +1,57 @@
+[
+  {
+    "file": "phuma.png",
+    "source": "https://davian-robotics.github.io/PHUMA/images/overview.png",
+    "page": "https://davian-robotics.github.io/PHUMA/",
+    "label": "官方项目总览图",
+    "size": [
+      2182,
+      1689
+    ],
+    "sha256": "9475df248c63755b9b3fc31f414eeafbffd58a7c28e11682c506e511cd505caa"
+  },
+  {
+    "file": "bones.jpg",
+    "source": "https://res.cloudinary.com/ddozo4yn9/video/upload/so_2,w_960/BONES_SEED_HUM2ROBOT_Multicam_Mosaic_ab5urv.jpg",
+    "page": "https://bones.studio/datasets/seed",
+    "label": "官方演示视频画面（第 2 秒）",
+    "size": [
+      960,
+      540
+    ],
+    "sha256": "5c956649b8a8a6db9def5d91370c3eb022c738df27cc682f7b502d4f2c082486"
+  },
+  {
+    "file": "humanoid.jpg",
+    "source": "https://humanoideveryday.github.io/static/images/block-2.jpg",
+    "page": "https://humanoideveryday.github.io/",
+    "label": "官方项目总览图",
+    "size": [
+      3704,
+      1880
+    ],
+    "sha256": "50c8ffe3bea2ad3ccaa515c2dcc2417f49784963f38e87f9128bb0702b908e22"
+  },
+  {
+    "file": "egodex.png",
+    "source": "https://arxiv.org/html/2505.11709v1/grid_v4.png",
+    "page": "https://arxiv.org/html/2505.11709v1",
+    "label": "论文 Figure 1",
+    "size": [
+      1600,
+      900
+    ],
+    "sha256": "440a023c6c14688c41540b8f076c248cd3934132aa98db3e6e5192d6854e8749"
+  },
+  {
+    "file": "xperience.jpg",
+    "source": "https://huggingface.co/datasets/ropedia-ai/xperience-10m-sample",
+    "page": "https://huggingface.co/datasets/ropedia-ai/xperience-10m-sample",
+    "label": "Ropedia 官方公开样例 · 本地截帧拼图 · CC BY-NC 4.0",
+    "size": [
+      1440,
+      1032
+    ],
+    "sha256": "1998348494463581ab46119a2e7890a1d6db401a07e88ed59aaa976e2a50a5ce"
+  }
+]
