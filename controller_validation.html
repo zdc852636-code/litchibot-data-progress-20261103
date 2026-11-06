@@ -40,6 +40,7 @@
 .pose-total{margin:0 0 14px;font-size:17px;font-weight:700;color:var(--green)}.root-parts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}.root-part{padding:12px;background:#f0f5fa;border-radius:6px;min-width:0}.root-part b{display:block;font-size:16px}.root-part span{display:block;margin-top:4px;font-size:14px;color:var(--muted)}.root-availability{font-size:14px;color:var(--muted);margin-top:10px}
 .npz-parts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.npz-parts span{border:1px solid #dce6e3;border-radius:6px;padding:5px 8px;font-size:14px}.json-tree{display:grid;gap:8px;border-left:2px solid #b9cbe6;padding-left:13px;margin-left:3px}.json-tree span{font-size:15px;line-height:1.65}.json-tree span::before{content:'—';color:#9cafcc;margin-right:8px}
 .conversion-format details td{overflow-wrap:anywhere}.conversion-format details table{min-width:640px}.conversion-format details td:first-child{font-family:ui-monospace,Consolas,monospace;font-size:14px;min-width:175px}
+.frame-example{margin-top:22px;border:1px solid var(--line);border-radius:12px;overflow:hidden}.frame-example-heading{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 18px;background:#edf7f3}.frame-example-heading h4{margin:0;font-size:17px}.frame-example-heading span{font-size:13px;color:var(--green)}.frame-example pre{margin:0;padding:18px;background:#f7f9fb;white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.85 ui-monospace,Consolas,monospace;color:var(--ink)}.frame-example .field{color:#087e70;font-weight:600}.frame-example .code-comment{color:#687d8e}.frame-example-note{padding:10px 18px;margin:0!important;border-top:1px solid var(--line);font-size:13px}
 .result-legend{margin:0 0 15px;gap:8px 18px}.result-legend span{display:inline-flex;align-items:center;gap:6px}.result-legend i{width:11px;height:11px;border-radius:3px;display:inline-block}
 .record-rows{display:grid;gap:0}.record-row{display:grid;grid-template-columns:175px minmax(0,1fr) 82px 155px;gap:15px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}.record-row:last-child{border-bottom:0}.record-row>strong{font-size:15px;line-height:1.4}.record-bar{display:flex;height:30px;gap:3px;min-width:0}.record-bar span{display:flex;align-items:center;justify-content:center;flex:var(--count);font-size:14px;font-weight:700;border-radius:5px;min-width:0;color:#fff}.record-bar .empty{color:#8e4b40}
 .record-count{font-size:17px;font-weight:700;font-variant-numeric:tabular-nums;text-align:right}.record-scope{font-size:14px;line-height:1.55;color:var(--muted)}.record-bar .native,.result-legend .native{background:#167e70}.record-bar .legacy,.result-legend .legacy{background:#7485a1}.record-bar .new,.result-legend .new{background:#416ec8}.record-bar .empty,.result-legend .empty{background:#f1dcd4}
@@ -61,6 +62,25 @@
 <div class="npz-parts"><span>另存：时间</span><span>有效 / 缺失</span><span>拟合误差</span></div><div class="root-availability">36 为每帧姿态数值总数；缺失关节或根位姿保留 NaN，并标记不可用。</div></div>
 <div class="format-file json"><header><b>JSON</b><span>记录说明</span></header><div class="json-tree"><span>来源与校验</span><span>关节名称与坐标定义</span><span>转换方法与覆盖范围</span><span>质量指标与限制</span></div></div>
 </div><div class="format-rules"><span>单位：m / rad / s</span><span>四元数：x y z w</span><span>缺失：NaN＋掩码</span><span>局部坐标分别保留</span></div>
+<div class="frame-example" aria-labelledby="frame-example-title"><div class="frame-example-heading"><h4 id="frame-example-title">单帧数据示例 · NPZ 解码后</h4><span>示意数值 · 非真实样本</span></div><pre><code><span class="field">time_s[1]</span> = 0.033333  <span class="code-comment"># 第 2 帧，示例采样率 30 Hz</span>
+<span class="field">joint_position_rad[1]</span> = [
+  -0.15, 0.00, 0.00, 0.30, -0.15, 0.00,  <span class="code-comment"># 左腿 · 6</span>
+  -0.15, 0.00, 0.00, 0.30, -0.15, 0.00,  <span class="code-comment"># 右腿 · 6</span>
+  0.00, 0.00, 0.00,  <span class="code-comment"># 腰 · 3</span>
+  0.16, 0.16, 0.02, 0.68, 0.00, 0.00, 0.00,  <span class="code-comment"># 左臂 · 7</span>
+  0.14, -0.16, -0.02, 0.64, 0.00, 0.00, 0.00  <span class="code-comment"># 右臂 · 7</span>
+]
+<span class="field">root_position_m[1]</span> = [0.00, 0.00, 0.78]  <span class="code-comment"># x, y, z · m</span>
+<span class="field">root_orientation_xyzw[1]</span> = [0.00, 0.00, 0.00, 1.00]  <span class="code-comment"># x, y, z, w</span>
+
+<span class="field">mask_joint_supported[1]</span> = [
+  True, True, True, True, True, True,
+  True, True, True, True, True, True,
+  True, True, True,
+  True, True, True, True, True, True, True,
+  True, True, True, True, True, True, True
+]
+<span class="field">mask_root_available[1]</span> = True</code></pre><p class="frame-example-note">[1] 为第 2 帧；29 个 True 与 29 个关节一一对应，仅表示有输出，不代表通过质检。缺失值为 NaN，对应标记为 False。</p></div>
 <details><summary>方法与字段明细</summary>
 <p>DLS 为阻尼最小二乘法：机器人用正运动学提取关键点，人体读取骨架点，按 G1 肢长拟合；EgoDex 手臂置信度阈值为 0.5。未训练新模型，未加入平衡或接触优化。</p>
 <p>保留输入时间轴；SOMA 沿用约 30 Hz 的旧结果，其余本次未重采样。EgoDex 为身体局部、Xperience 为骨盆局部；世界根不可用时留空。preview_* 的固定根或站姿仅供显示。</p>
